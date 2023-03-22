@@ -8,6 +8,7 @@ import Location from "./components/seoul/Location";
 import Nature from "./components/seoul/Nature";
 import Shop from "./components/seoul/Shop";
 import FoodList from "./components/food/FoodList";
+import FoodDetail from "./components/food/FoodDetail";
 /*
       Routes = Controller
       Route  = @RequestMapping
@@ -27,6 +28,7 @@ class App extends Component{
                 <Route path={"/seoul/nature"} element={<Nature/>}/>
                 <Route path={"/seoul/shop"} element={<Shop/>}/>
                 <Route path={"/food/food_list/:cno"} element={<FoodList/>}/>
+                <Route path={"/food/food_detail/:fno"} element={<FoodDetail/>}/>
             </Routes>
           </div>
         </Router>

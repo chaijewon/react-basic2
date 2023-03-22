@@ -1,6 +1,7 @@
 import {Component, useState, useEffect, Fragment} from "react";
 import {useParams} from "react-router";
 import axios from "axios";
+import {NavLink} from "react-router-dom";
 
 function  FoodList(props){
     let {cno}=useParams()
@@ -26,15 +27,16 @@ function  FoodList(props){
             setCateInfo(response.data)
         })
     },[])
+    // for(FoodVO vo:list) [{},{},{}]
     let html=foodList.map((food)=>
         <table className="table">
             <tr>
                 <td className="text-center" width="30%" rowspan="4">
-                    <a href="#">
+                    <NavLink to={"/food/food_detail/"+food.fno}>
                         <img src={food.poster} style={{"width":"320px","height": "150px"}} className="img-rounded"/>
-                    </a>
+                    </NavLink>
                 </td>
-                <td width="70%"><a href="#"><span>{food.name}</span></a>&nbsp;<span style={{"color":"orange"}}>{food.score}</span></td></tr>
+                <td width="70%"><NavLink to={"/food/food_detail/"+food.fno}><span>{food.name}</span></NavLink>&nbsp;<span style={{"color":"orange"}}>{food.score}</span></td></tr>
             <tr>
                 <td width="70%">{food.address}</td>
             </tr>
